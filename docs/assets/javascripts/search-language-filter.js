@@ -7,6 +7,7 @@
   var searchRequests = new WeakSet();
   var activeLanguage = document.documentElement.lang.toLowerCase();
   var showEnglish = activeLanguage === "en" || activeLanguage.indexOf("en-") === 0;
+  var searchSeparator = "[\\s\\u200b\\u3000_\\-、。，．？！；：:，,.!?;()（）/]+";
 
   function isSearchIndex(value) {
     try {
@@ -22,6 +23,14 @@
     var location = String(entry.location || "").replace(/^\//, "");
     var isEnglish = location === "en" || location.indexOf("en/") === 0;
     return showEnglish ? isEnglish : !isEnglish;
+  }
+
+  function configureSearchIndex(index) {
+    index.config = index.config || {};
+    index.config.lang = [showEnglish ? "en" : "zh"];
+    index.config.pipeline = showEnglish ? ["trimmer"] : ["stemmer"];
+    index.config.separator = searchSeparator;
+    index.docs = index.docs.filter(belongsToActiveLanguage);
   }
 
   function notify(listener, request, event) {
@@ -64,7 +73,7 @@
             return;
           }
 
-          index.docs = index.docs.filter(belongsToActiveLanguage);
+          configureSearchIndex(index);
           Object.defineProperty(request, "response", {
             configurable: true,
             value: new Blob([JSON.stringify(index)], { type: "application/json" }),

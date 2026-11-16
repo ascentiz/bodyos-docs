@@ -87,6 +87,13 @@ LEGACY_API_LOCATIONS = {
     "api/telemetry-api/",
 }
 
+TORQUE_SEARCH_PAGES = {
+    "en/api/",
+    "en/api/C%2B%2B_API_Reference/",
+    "en/api/Python_API_Reference/",
+    "en/api/Examples_Guide/",
+}
+
 LINK_RE = re.compile(r"(?:href|src)=[\"']([^\"']+)[\"']", re.IGNORECASE)
 ID_RE = re.compile(r"\bid=[\"']([^\"']+)[\"']", re.IGNORECASE)
 H1_RE = re.compile(r"<h1(?:\s[^>]*)?>(.*?)</h1>", re.IGNORECASE | re.DOTALL)
@@ -268,6 +275,19 @@ def main() -> int:
             if location in LEGACY_API_LOCATIONS or location.startswith(LEGACY_PREFIXES):
                 fail(f"搜索索引包含旧页面：{location}", failures)
 
+        torque_pages = {
+            str(item.get("location", "")).split("#", 1)[0]
+            for item in search_data.get("docs", [])
+            if re.search(
+                r"torque",
+                f"{item.get('title', '')} {item.get('text', '')}",
+                re.IGNORECASE,
+            )
+        }
+        if not TORQUE_SEARCH_PAGES.issubset(torque_pages):
+            missing = sorted(TORQUE_SEARCH_PAGES - torque_pages)
+            fail("torque 搜索索引缺少英文文稿：" + ", ".join(missing), failures)
+
     search_filter_file = DOCS / SEARCH_FILTER
     if not search_filter_file.is_file():
         fail(f"缺少语言搜索过滤器：docs/{SEARCH_FILTER}", failures)
@@ -276,6 +296,9 @@ def main() -> int:
         for marker in (
             "document.documentElement.lang",
             "XMLHttpRequest.prototype.open",
+            "index.config.lang",
+            "index.config.pipeline",
+            "index.config.separator",
             'location.indexOf("en/")',
             ".filter(",
         ):
