@@ -21,8 +21,8 @@
 
   function belongsToActiveLanguage(entry) {
     var location = String(entry.location || "").replace(/^\//, "");
-    var isEnglish = location === "en" || location.indexOf("en/") === 0;
-    return showEnglish ? isEnglish : !isEnglish;
+    var isChinese = location === "zh" || location.indexOf("zh/") === 0;
+    return showEnglish ? !isChinese : isChinese;
   }
 
   function configureSearchIndex(index) {

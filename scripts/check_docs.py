@@ -47,7 +47,7 @@ def localized_output(source: str, locale: str) -> str:
         output = path.parent / "index.html"
     else:
         output = path.with_suffix("") / "index.html"
-    return str(Path("en") / output) if locale == "en" else str(output)
+    return str(Path("zh") / output) if locale == "zh" else str(output)
 
 
 PUBLISHED_SOURCES = tuple(
@@ -88,10 +88,10 @@ LEGACY_API_LOCATIONS = {
 }
 
 TORQUE_SEARCH_PAGES = {
-    "en/api/",
-    "en/api/C%2B%2B_API_Reference/",
-    "en/api/Python_API_Reference/",
-    "en/api/Examples_Guide/",
+    "api/",
+    "api/C%2B%2B_API_Reference/",
+    "api/Python_API_Reference/",
+    "api/Examples_Guide/",
 }
 
 LINK_RE = re.compile(r"(?:href|src)=[\"']([^\"']+)[\"']", re.IGNORECASE)
@@ -156,8 +156,8 @@ def main() -> int:
             failures,
         )
 
-    if config.get("theme", {}).get("language") != "zh":
-        fail("MkDocs 主题语言必须为 zh。", failures)
+    if config.get("theme", {}).get("language") != "en":
+        fail("MkDocs 主题语言必须为 en。", failures)
 
     i18n_config = next(
         (
@@ -176,12 +176,12 @@ def main() -> int:
         }
         zh = languages.get("zh", {})
         en = languages.get("en", {})
-        if not (zh.get("default") is True and zh.get("build") is True):
-            fail("中文 zh 必须是当前默认构建语言。", failures)
-        if zh.get("name") != "中":
-            fail("中文语言切换名称必须为 中。", failures)
-        if not (en.get("build") is True and en.get("name") == "EN"):
-            fail("英文 en 必须启用构建，且语言切换名称为 EN。", failures)
+        if not (en.get("default") is True and en.get("build") is True):
+            fail("英文 en 必须是当前默认构建语言。", failures)
+        if not (en.get("name") == "EN"):
+            fail("英文语言切换名称必须为 EN。", failures)
+        if not (zh.get("build") is True and zh.get("name") == "中"):
+            fail("中文 zh 必须启用构建，且语言切换名称为 中。", failures)
 
     for relative in PUBLISHED_SOURCES:
         source = DOCS / relative
@@ -299,7 +299,7 @@ def main() -> int:
             "index.config.lang",
             "index.config.pipeline",
             "index.config.separator",
-            'location.indexOf("en/")',
+            'location.indexOf("zh/")',
             ".filter(",
         ):
             if marker not in search_filter:

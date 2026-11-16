@@ -1,6 +1,6 @@
-site_name: BodyOS 开发者文档
+site_name: BodyOS Developer Documentation
 site_url: https://ascentiz.github.io/bodyos-docs/
-site_description: BodyOS 外骨骼系统中文开发者文档，包含 Exo Belt、B-core Pi 1、BodyOS SDK、API 与官方示例。
+site_description: BodyOS exoskeleton developer documentation covering Exo Belt, B-core Pi 1, BodyOS SDK, APIs, and official examples.
 site_author: Ascentiz
 repo_url: https://github.com/ascentiz/bodyos-docs
 repo_name: ascentiz/bodyos-docs
@@ -31,7 +31,7 @@ exclude_docs: |
 theme:
   name: material
   custom_dir: overrides
-  language: zh
+  language: en
   logo: assets/images/ascentiz-logo.png
   favicon: assets/images/ascentiz-logo.png
   palette:
@@ -55,31 +55,31 @@ plugins:
   - i18n:
       docs_structure: suffix
       languages:
-        - locale: zh
-          default: true
-          name: 中
-          build: true
-          site_name: BodyOS 开发者文档
         - locale: en
+          default: true
           name: EN
           build: true
           site_name: BodyOS Developer Documentation
           site_description: BodyOS exoskeleton developer documentation covering Exo Belt, B-core Pi 1, BodyOS SDK, APIs, and official examples.
           copyright: Copyright &copy; 2026 Ascentiz
+        - locale: zh
+          name: 中
+          build: true
+          site_name: BodyOS 开发者文档
           theme:
-            language: en
+            language: zh
           nav_translations:
-            首页: Home
-            产品与硬件: Product & Hardware
-            系统组成与开发边界: System Components & Boundaries
-            机械结构：Exo Belt: "Mechanical: Exo Belt"
-            硬件：B-core Pi 1: "Hardware: B-core Pi 1"
-            SDK 开发者手册: SDK Developer Guide
+            Home: 首页
+            Product & Hardware: 产品与硬件
+            System Components & Boundaries: 系统组成与开发边界
+            "Mechanical: Exo Belt": 机械结构：Exo Belt
+            "Hardware: B-core Pi 1": 硬件：B-core Pi 1
+            SDK Developer Guide: SDK 开发者手册
             API Reference: API Reference
             C++ API: C++ API
             Python API: Python API
-            Integration Libraries（规划中）: Integration Libraries (Planned)
-            官方示例: Official Examples
+            Integration Libraries (Planned): Integration Libraries（规划中）
+            Official Examples: 官方示例
 
 markdown_extensions:
   - admonition
@@ -109,18 +109,18 @@ extra:
       link: https://github.com/ascentiz/bodyos-docs
 
 nav:
-  - 首页: index.md
-  - 产品与硬件:
-      - 系统组成与开发边界: product/overview.md
-      - 机械结构：Exo Belt: product/exo-belt.md
-      - 硬件：B-core Pi 1: product/b-core-pi-1.md
+  - Home: index.md
+  - Product & Hardware:
+      - System Components & Boundaries: product/overview.md
+      - "Mechanical: Exo Belt": product/exo-belt.md
+      - "Hardware: B-core Pi 1": product/b-core-pi-1.md
   - Installation: installation/index.md
   - BodyOS SDK:
-      - SDK 开发者手册: api/README.md
+      - SDK Developer Guide: api/README.md
       - API Reference:
           - C++ API: api/C++_API_Reference.md
           - Python API: api/Python_API_Reference.md
-      - Integration Libraries（规划中）: api/integration-libraries.md
-  - 官方示例: api/Examples_Guide.md
+      - Integration Libraries (Planned): api/integration-libraries.md
+  - Official Examples: api/Examples_Guide.md
 
 copyright: Copyright &copy; 2026 Ascentiz
