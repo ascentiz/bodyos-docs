@@ -16,6 +16,8 @@ import yaml
 ROOT = Path(__file__).resolve().parents[1]
 DOCS = ROOT / "docs"
 SITE = ROOT / "site"
+SEARCH_FILTER = "assets/javascripts/search-language-filter.js"
+MATERIAL_BUNDLE_MARKER = "assets/javascripts/bundle."
 
 NAV_SOURCES = (
     "index.md",
@@ -200,6 +202,16 @@ def main() -> int:
                 failures,
             )
 
+        filter_position = content.find(SEARCH_FILTER)
+        bundle_position = content.find(MATERIAL_BUNDLE_MARKER)
+        if filter_position == -1:
+            fail(f"页面未加载语言搜索过滤器：{output.relative_to(ROOT)}", failures)
+        elif bundle_position == -1 or filter_position > bundle_position:
+            fail(
+                f"语言搜索过滤器必须在 Material 搜索脚本之前加载：{output.relative_to(ROOT)}",
+                failures,
+            )
+
     for output_rel in PUBLISHED_OUTPUTS.values():
         page = SITE / output_rel
         if not page.is_file():
@@ -255,6 +267,20 @@ def main() -> int:
         for location in sorted(locations):
             if location in LEGACY_API_LOCATIONS or location.startswith(LEGACY_PREFIXES):
                 fail(f"搜索索引包含旧页面：{location}", failures)
+
+    search_filter_file = DOCS / SEARCH_FILTER
+    if not search_filter_file.is_file():
+        fail(f"缺少语言搜索过滤器：docs/{SEARCH_FILTER}", failures)
+    else:
+        search_filter = search_filter_file.read_text(encoding="utf-8")
+        for marker in (
+            "document.documentElement.lang",
+            "XMLHttpRequest.prototype.open",
+            'location.indexOf("en/")',
+            ".filter(",
+        ):
+            if marker not in search_filter:
+                fail(f"语言搜索过滤器缺少预期逻辑：{marker}", failures)
 
     required_markers = {
         "product/overview.zh.md": "Exoskeleton Unit（封装）",
