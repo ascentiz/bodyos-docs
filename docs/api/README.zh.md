@@ -20,16 +20,11 @@ BodyOS 基于 **“守护进程 + 客户端双 Socket”** 架构，彻底解决
 
 ## 🚀 快速开始
 
-### 1. 部署守护进程
-在目标设备（如树莓派 CM5）上，将 `bin/` 和 `config/` 拷贝至系统目录，并启动后台服务：
-```bash
-sudo cp bin/* /usr/local/bin/
-sudo cp config/bodyos-daemon.service /etc/systemd/system/
-sudo cp config/logrotate.bodyos /etc/logrotate.d
-sudo systemctl daemon-reload
-sudo systemctl enable --now bodyos-daemon
-```
-*日志默认保存在 `/var/log/bodyos/bodyos.log`，支持自动轮转与 Gzip 压缩。*
+### 1. SDK一键布署
+* 参考 📘 **[BodyOS SDK 部署指南](./PACKAGING.md)**
+* **程序启动：** bodyos-daemon通过bodyos-daemon.service自动拉起，
+ `journalctrl -u bodyos-daemon.service -f`实时查看日志输出，
+运行日志默认保存在 `/var/log/bodyos/bodyos.log`，支持自动轮转与 Gzip 压缩。
 
 ### 2. C++ 项目集成
 在 `CMakeLists.txt` 中配置并引入：
