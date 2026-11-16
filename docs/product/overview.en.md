@@ -8,7 +8,7 @@ The BodyOS development system consists of four parts: Exo Belt, B-core Pi 1, Bod
 | --- | --- | --- |
 | Exo Belt | Exoskeleton belt and load-bearing mechanical structure | Mechanical structure, assembly, fitting, and load boundaries; detailed parameters are pending |
 | B-core Pi 1 | Developer-accessible computing and control entry point | Hardware architecture, power supply, connections, and board interfaces; detailed parameters are pending |
-| BodyOS SDK | Developer access layer | SDK architecture, C++/Python APIs, and official examples; the Python SDK will be distributed as a `.whl` package |
+| BodyOS SDK | Developer access layer | SDK architecture, C++/Python APIs, and official examples |
 | Exoskeleton Unit | Encapsulated device execution unit | Internal hardware and device drivers are not exposed to users; the unit performs local device driving and enforces final safety constraints |
 
 ## Developer Access Path
