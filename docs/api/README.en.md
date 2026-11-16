@@ -23,19 +23,10 @@ BodyOS uses a **daemon + dual client socket** architecture to eliminate resource
 
 ## 🚀 Quick Start
 
-### 1. Deploy the Daemon
+### 1. One-Click SDK Deployment
+- Refer to the 📘 **[BodyOS SDK Deployment Guide](./PACKAGING.md)**.
 
-On the target device, such as a Raspberry Pi CM5, copy `bin/` and `config/` into the system directories and start the background service:
-
-```bash
-sudo cp bin/* /usr/local/bin/
-sudo cp config/bodyos-daemon.service /etc/systemd/system/
-sudo cp config/logrotate.bodyos /etc/logrotate.d
-sudo systemctl daemon-reload
-sudo systemctl enable --now bodyos-daemon
-```
-
-*Logs are stored in `/var/log/bodyos/bodyos.log` by default, with automatic rotation and Gzip compression.*
+- **Program Startup:** `bodyos-daemon` is automatically started by `bodyos-daemon.service`. Use `journalctrl -u bodyos-daemon.service -f` to view log output in real time. Runtime logs are saved by default to `/var/log/bodyos/bodyos.log`, with automatic rotation and Gzip compression supported.
 
 ### 2. Integrate a C++ Project
 
