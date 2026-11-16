@@ -48,7 +48,7 @@ pip install -r requirements.txt
 mkdocs serve
 ```
 
-打开 `http://127.0.0.1:8000/open-unit-docs/`。
+打开 `http://127.0.0.1:8000/bodyos-docs/`。
 
 ## 构建与检查
 

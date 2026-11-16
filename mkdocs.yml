@@ -1,9 +1,9 @@
 site_name: BodyOS 开发者文档
-site_url: https://ascentiz.github.io/open-unit-docs/
+site_url: https://ascentiz.github.io/bodyos-docs/
 site_description: BodyOS 外骨骼系统中文开发者文档，包含 Exo Belt、B-core Pi 1、BodyOS SDK、API 与官方示例。
 site_author: Ascentiz
-repo_url: https://github.com/ascentiz/open-unit-docs
-repo_name: ascentiz/open-unit-docs
+repo_url: https://github.com/ascentiz/bodyos-docs
+repo_name: ascentiz/bodyos-docs
 edit_uri: edit/main/docs/
 docs_dir: docs
 site_dir: site
@@ -106,7 +106,7 @@ extra_css:
 extra:
   social:
     - icon: fontawesome/brands/github
-      link: https://github.com/ascentiz/open-unit-docs
+      link: https://github.com/ascentiz/bodyos-docs
 
 nav:
   - 首页: index.md

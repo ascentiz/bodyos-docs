@@ -133,7 +133,7 @@ def normalize_h1(value: str | None) -> str | None:
 def output_for_url(page: Path, url_path: str) -> Path:
     if url_path.startswith("/"):
         normalized = url_path.lstrip("/")
-        prefix = "open-unit-docs/"
+        prefix = "bodyos-docs/"
         if normalized.startswith(prefix):
             normalized = normalized[len(prefix) :]
         target = SITE / normalized
