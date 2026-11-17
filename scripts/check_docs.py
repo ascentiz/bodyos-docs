@@ -16,7 +16,7 @@ import yaml
 ROOT = Path(__file__).resolve().parents[1]
 DOCS = ROOT / "docs"
 SITE = ROOT / "site"
-SEARCH_FILTER = "assets/javascripts/search-language-filter.js"
+SEARCH_FILTER = "assets/javascripts/search-language-filter-v2.js"
 MATERIAL_BUNDLE_MARKER = "assets/javascripts/bundle."
 
 NAV_SOURCES = (
