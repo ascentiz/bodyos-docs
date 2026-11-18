@@ -25,6 +25,7 @@ NAV_SOURCES = (
     "product/exo-belt.md",
     "product/b-core-pi-1.md",
     "installation/index.md",
+    "api/PACKAGING.md",
     "api/README.md",
     "api/C++_API_Reference.md",
     "api/Python_API_Reference.md",
@@ -319,6 +320,8 @@ def main() -> int:
         "product/b-core-pi-1.en.md": "BodyOS SDK / Public API",
         "installation/index.zh.md": "SHA-256",
         "installation/index.en.md": "SHA-256",
+        "api/PACKAGING.zh.md": "bodyos_sdk_upgrade.sh",
+        "api/PACKAGING.en.md": "bodyos_sdk_upgrade.sh",
         "api/README.en.md": "BodyOS SDK Developer Guide",
         "api/C++_API_Reference.en.md": "BodyClient",
         "api/Python_API_Reference.en.md": "BodyClient",
@@ -335,7 +338,7 @@ def main() -> int:
             print(f"- {item}")
         return 1
 
-    print("Documentation checks passed: 20 bilingual pages, links, anchors, and search scope are valid.")
+    print("Documentation checks passed: 22 bilingual pages, links, anchors, and search scope are valid.")
     return 0
 
 

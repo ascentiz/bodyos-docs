@@ -52,4 +52,4 @@ Explore four official examples, each available in C++ and Python:
 
 ## Current Documentation Scope
 
-The formal technical content for BodyOS SDK is based on four Chinese Markdown documents supplied by the development team. The Exo Belt and B-core Pi 1 pages currently publish only the confirmed system positioning and documentation framework. Unknown mechanical parameters, hardware specifications, pin definitions, and connection methods are marked as pending confirmation and are not inferred from legacy materials.
+The formal technical content for BodyOS SDK is based on five Chinese Markdown documents supplied by the development team. The Exo Belt and B-core Pi 1 pages currently publish only the confirmed system positioning and documentation framework. Unknown mechanical parameters, hardware specifications, pin definitions, and connection methods are marked as pending confirmation and are not inferred from legacy materials.

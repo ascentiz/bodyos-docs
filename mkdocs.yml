@@ -74,6 +74,8 @@ plugins:
             System Components & Boundaries: 系统组成与开发边界
             "Mechanical: Exo Belt": 机械结构：Exo Belt
             "Hardware: B-core Pi 1": 硬件：B-core Pi 1
+            SDK Download & Installation: SDK 下载与安装
+            SDK Deployment Guide: SDK 部署指南
             SDK Developer Guide: SDK 开发者手册
             API Reference: API Reference
             C++ API: C++ API
@@ -114,7 +116,9 @@ nav:
       - System Components & Boundaries: product/overview.md
       - "Mechanical: Exo Belt": product/exo-belt.md
       - "Hardware: B-core Pi 1": product/b-core-pi-1.md
-  - Installation: installation/index.md
+  - Installation:
+      - SDK Download & Installation: installation/index.md
+      - SDK Deployment Guide: api/PACKAGING.md
   - BodyOS SDK:
       - SDK Developer Guide: api/README.md
       - API Reference:

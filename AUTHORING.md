@@ -2,12 +2,13 @@
 
 ## 1. 事实来源
 
-SDK 技术内容只来自以下四个开发原稿：
+SDK 技术内容只来自以下五个开发原稿：
 
 - `docs/api/README.zh.md`
 - `docs/api/C++_API_Reference.zh.md`
 - `docs/api/Python_API_Reference.zh.md`
 - `docs/api/Examples_Guide.zh.md`
+- `docs/api/PACKAGING.zh.md`
 
 产品组成和用户开发边界维护在以下三个页面：
 
@@ -26,6 +27,8 @@ SDK 技术内容只来自以下四个开发原稿：
 - `docs/product/exo-belt.zh.md`：机械结构、装配与佩戴的可维护框架。
 - `docs/product/b-core-pi-1.zh.md`：硬件架构、供电、连接、板卡接口与开发工作流框架。
 - `docs/installation/index.zh.md`：SDK 下载、校验、解压、安装与版本兼容信息。
+- `docs/api/PACKAGING.zh.md`：SDK 目录布局、首次安装、升级、回滚、卸载与常见问题。
+- `docs/api/PACKAGING.zh.md`：SDK 首次部署、升级、回滚、卸载与常见问题。
 - `docs/api/README.zh.md`：架构、核心特性、部署、快速开始、文档导航与 FAQ。
 - `docs/api/C++_API_Reference.zh.md`：C++ 接口参考。
 - `docs/api/Python_API_Reference.zh.md`：Python 接口参考。
@@ -61,7 +64,7 @@ python scripts/check_docs.py
 
 提交前至少确认：
 
-- 20 个中英文正式页面都能打开；
+- 22 个中英文正式页面都能打开；
 - 导航顺序正确；
 - 页面内链接与锚点有效；
 - 搜索只返回当前正式内容；

@@ -58,6 +58,7 @@ python3 -m pip install ./<软件包名称>.whl
 
 ## 继续阅读
 
+- [SDK 部署指南](../api/PACKAGING.md)
 - [硬件：B-core Pi 1](../product/b-core-pi-1.md)
 - [SDK 开发者手册](../api/README.md)
 - [Python API](../api/Python_API_Reference.md)

@@ -5,7 +5,7 @@
 
 ## 1. 背景
 
-开发团队提供的四份中文 Markdown 文档是 BodyOS SDK、C++ API、Python API 与官方示例的正式技术来源。同时，完整开发系统还包含 Exo Belt、B-core Pi 1 与封装的 Exoskeleton Unit。文档站既要保留机械和用户可接触硬件的入口，也要明确哪些能力属于封装范围，避免用户误以为可以直接访问外骨骼单元内部硬件或驱动。
+开发团队提供的五份中文 Markdown 文档是 BodyOS SDK、C++ API、Python API、官方示例与 SDK 部署流程的正式技术来源。同时，完整开发系统还包含 Exo Belt、B-core Pi 1 与封装的 Exoskeleton Unit。文档站既要保留机械和用户可接触硬件的入口，也要明确哪些能力属于封装范围，避免用户误以为可以直接访问外骨骼单元内部硬件或驱动。
 
 ## 2. 产品目标
 
@@ -13,7 +13,7 @@
 - 明确用户在 B-core Pi 1 上通过 BodyOS SDK/API 获取数据和下发控制。
 - 明确 Exoskeleton Unit 的内部硬件、设备驱动和固件实现不向用户开放。
 - 为 Exo Belt 机械结构和 B-core Pi 1 硬件建立可持续补充的正式页面框架。
-- 保留开发团队交付的四份 SDK 文档作为接口事实来源。
+- 保留开发团队交付的五份 SDK 文档作为技术事实来源。
 - 提供与中文结构一致的英文翻译，通过“中 / EN”在对应页面间切换。
 - 提供独立 Installation 入口，承载 SDK 下载、校验、安装和版本兼容信息。
 - 排除旧版 Wiki 中未经确认的机械、硬件和产品参数。
@@ -24,7 +24,7 @@
 | --- | --- | --- |
 | Exo Belt | 机械结构、装配与佩戴 | 框架已建立，具体资料待确认 |
 | B-core Pi 1 | 硬件架构、供电、连接与板卡接口 | 框架已建立，具体资料待确认 |
-| BodyOS SDK | SDK 架构、API、示例与 Python `.whl` 分发 | 四份开发原稿已接入；`.whl` 交付细节待确认 |
+| BodyOS SDK | SDK 架构、API、示例、部署与 Python `.whl` 分发 | 五份开发原稿已接入；`.whl` 交付细节待确认 |
 | Exoskeleton Unit | 对外提供受控的数据与控制能力 | 内部硬件、驱动和固件实现封装，不向用户开放 |
 
 ## 4. 用户开发路径
@@ -55,6 +55,7 @@ Exoskeleton Unit（内部硬件与驱动封装）
 | `docs/api/Python_API_Reference.zh.md` | Python API 参考 |
 | `docs/api/integration-libraries.zh.md` | 第三方传感器与外部设备集成库规划 |
 | `docs/api/Examples_Guide.zh.md` | C++/Python 官方示例 |
+| `docs/api/PACKAGING.zh.md` | SDK 部署、升级、回滚、卸载与常见问题 |
 
 ### 5.2 产品框架页
 
@@ -76,6 +77,8 @@ BodyOS 开发者文档
 │   ├── 机械结构：Exo Belt
 │   └── 硬件：B-core Pi 1
 ├── Installation
+│   ├── SDK 下载与安装
+│   └── SDK 部署指南
 ├── BodyOS SDK
 │   ├── SDK 开发者手册
 │   ├── API Reference
@@ -115,6 +118,7 @@ BodyOS 开发者文档
 
 - 作为顶层导航入口提供 SDK 软件下载。
 - 每个版本列出版本号、平台、架构、文件大小、SHA-256 与固定下载链接。
+- 部署指南说明首次安装、升级、回滚、卸载、目录布局和常见问题。
 - 软件包通过 GitHub Release 附件进行版本化管理，不覆盖历史版本。
 - 未确认的文件名、依赖、Python 版本和安装命令保持待确认。
 
@@ -128,7 +132,7 @@ BodyOS 开发者文档
 ## 9. 验收标准
 
 - 网站导航包含首页、产品与硬件、Installation、BodyOS SDK 和官方示例五组入口。
-- 10 个中文页面和 10 个英文页面可以正常打开并被搜索。
+- 11 个中文页面和 11 个英文页面可以正常打开并被搜索。
 - 语言切换显示“中 / EN”，并进入当前页面的对应语言版本。
 - Exo Belt 与 B-core Pi 1 页面明确标注当前框架状态和待确认项。
 - 系统组成页清楚表达 B-core Pi 1 → SDK/API → Exoskeleton Unit 的访问路径。

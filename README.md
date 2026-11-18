@@ -4,12 +4,13 @@
 
 ## 内容基线
 
-SDK 接口与示例以开发团队提供的四份中文 Markdown 文档为正式技术来源：
+SDK 接口、示例与部署以开发团队提供的五份中文 Markdown 文档为正式技术来源：
 
 - `docs/api/README.zh.md`：SDK 开发者手册
 - `docs/api/C++_API_Reference.zh.md`：C++ API
 - `docs/api/Python_API_Reference.zh.md`：Python API
 - `docs/api/Examples_Guide.zh.md`：官方示例
+- `docs/api/PACKAGING.zh.md`：SDK 部署、升级、回滚与卸载
 
 产品组成与开发边界依据当前确认的信息维护在：
 
@@ -29,6 +30,8 @@ Exo Belt 与 B-core Pi 1 页面只发布已确认的系统定位；未知尺寸�
    - 机械结构：Exo Belt
    - 硬件：B-core Pi 1
 3. Installation
+   - SDK 下载与安装
+   - SDK 部署指南
 4. BodyOS SDK
    - SDK 开发者手册
    - API Reference
@@ -37,7 +40,7 @@ Exo Belt 与 B-core Pi 1 页面只发布已确认的系统定位；未知尺寸�
    - Integration Libraries（规划中）
 5. 官方示例
 
-所有正式页面都同时使用 `.zh.md` 与 `.en.md` 后缀。构建系统采用语言后缀结构，中文为默认语言，英文发布在 `/en/`，页面间通过“中 / EN”切换。
+所有正式页面都同时使用 `.zh.md` 与 `.en.md` 后缀。构建系统采用语言后缀结构，英文为默认语言，中文发布在 `/zh/`，页面间通过“中 / EN”切换。
 
 ## 本地预览
 
@@ -57,7 +60,7 @@ mkdocs build --strict
 python scripts/check_docs.py
 ```
 
-`check_docs.py` 会检查 20 个中英文正式页面、站内链接、锚点、搜索索引以及旧目录是否被排除。
+`check_docs.py` 会检查 22 个中英文正式页面、站内链接、锚点、搜索索引以及旧目录是否被排除。
 
 ## 发布
 

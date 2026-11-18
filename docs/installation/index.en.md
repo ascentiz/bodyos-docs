@@ -58,6 +58,7 @@ When the first official package is released, this section will provide:
 
 ## Continue Reading
 
+- [SDK Deployment Guide](../api/PACKAGING.md)
 - [Hardware: B-core Pi 1](../product/b-core-pi-1.md)
 - [SDK Developer Guide](../api/README.md)
 - [Python API](../api/Python_API_Reference.md)

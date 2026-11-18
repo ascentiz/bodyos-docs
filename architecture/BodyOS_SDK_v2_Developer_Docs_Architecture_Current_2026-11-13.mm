@@ -33,6 +33,7 @@
       <node ID="installation-checksum" TEXT="文件大小与 SHA-256 校验"/>
       <node ID="installation-verify" TEXT="解压、安装与安装后验证"/>
       <node ID="installation-history" TEXT="GitHub Release 历史版本"/>
+      <node ID="installation-deployment" TEXT="SDK 部署指南：安装、升级、回滚与卸载"/>
     </node>
     <node ID="sdk" POSITION="left" TEXT="04 BodyOS SDK">
       <node ID="manual" TEXT="04.1 SDK 开发者手册">
