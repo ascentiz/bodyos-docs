@@ -14,29 +14,32 @@
 ```
 
 ## First-Time Installation
-
 ```bash
 tar xzf bodyos-sdk-v2.0.0.tar.gz
 cd bodyos-sdk-2.0.0
 sudo ./bodyos_sdk_install.sh
 ```
-
 To use a custom deployment path:
-
 ```bash
 sudo ./bodyos_sdk_install.sh --root /usr/local/bodyos
 ```
 
-## Upgrade
+The installation script does not overwrite an existing installation or residual services. For an existing deployment,
+use the upgrade script; to reinstall, uninstall it first (which preserves the configuration and service user by default),
+then run the installer.
+The upgrade script currently supports upgrades only for the default deployment path; use the uninstall command below
+for custom paths.
+After the daemon starts, it waits up to approximately 30 seconds to check the control IPC response and push-stream socket.
+This does not guarantee that the hardware link or sensor data is healthy. If startup or readiness checks fail, installation
+files and `current` are retained for troubleshooting. Check `journalctl -u bodyos-daemon -n 50 --no-pager`.
 
+## Upgrade
 ```bash
 sudo ./bodyos_sdk_upgrade.sh bodyos-sdk-v2.1.0.tar.gz
 ```
-
 The upgrade script automatically performs the following steps: extract the package → build the Python SDK → compare the systemd configuration → atomically switch the symlink → restart the service → roll back on failure → remove old versions.
 
 ## Rollback
-
 ```bash
 sudo ./bodyos_sdk_upgrade.sh --rollback             # Roll back to the previous version
 sudo ./bodyos_sdk_upgrade.sh --rollback-to v2.0.0   # Roll back to a specified version
@@ -44,6 +47,8 @@ sudo ./bodyos_sdk_upgrade.sh --list                 # List installed versions
 ```
 
 ## Uninstall
+By default, `/etc/bodyos/` and the `bodyos` user are preserved. Logs are deleted by default; use
+`--keep-logs` to preserve them.
 
 ```bash
 # Complete uninstall (requires interactive confirmation)
@@ -58,8 +63,11 @@ sudo ./bodyos_sdk_upgrade.sh --uninstall --version v2.0.0
 # Preview changes without applying them (safe)
 sudo ./bodyos_sdk_upgrade.sh --uninstall --dry-run
 
-# Reinstallation scenario: preserve configuration and the service user
-sudo ./bodyos_sdk_upgrade.sh --uninstall --yes --keep-config --keep-user
+# Explicitly remove configuration and the user (the user is removed only when no processes are running)
+sudo ./bodyos_sdk_upgrade.sh --uninstall --purge-config --purge-user
+
+# Uninstall a custom-root installation (--root must precede the subcommand)
+sudo ./bodyos_sdk_upgrade.sh --root /usr/local/bodyos --uninstall
 ```
 
 ## Frequently Asked Questions
