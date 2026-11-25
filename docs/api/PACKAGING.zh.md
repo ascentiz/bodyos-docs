@@ -25,6 +25,13 @@ sudo ./bodyos_sdk_install.sh
 sudo ./bodyos_sdk_install.sh --root /usr/local/bodyos
 ```
 
+安装脚本不会覆盖已有安装或残留服务。已有部署请使用升级脚本；需要重装时，
+先卸载（默认保留配置和用户），再执行安装。
+升级脚本目前仅支持默认部署路径的升级；自定义路径支持下面的卸载命令。
+daemon 启动后会等待最多约 30 秒，检查控制 IPC 应答和推流 socket 连接；
+这不代表硬件链路或传感器数据正常。启动或就绪检查失败时，安装文件和
+`current` 保留以供排查，请查看 `journalctl -u bodyos-daemon -n 50 --no-pager`。
+
 ## 升级
 ```bash
 sudo ./bodyos_sdk_upgrade.sh bodyos-sdk-v2.1.0.tar.gz
@@ -39,6 +46,9 @@ sudo ./bodyos_sdk_upgrade.sh --list                 # 查看已安装
 ```
 
 ## 卸载
+默认保留 `/etc/bodyos/` 用户配置及 `bodyos` 用户；日志默认删除，可用
+`--keep-logs` 保留。
+
 ```bash
 # 完全卸载（交互确认）
 sudo ./bodyos_sdk_upgrade.sh --uninstall
@@ -52,8 +62,11 @@ sudo ./bodyos_sdk_upgrade.sh --uninstall --version v2.0.0
 # 预览（安全）
 sudo ./bodyos_sdk_upgrade.sh --uninstall --dry-run
 
-# 重装场景：保留配置和用户
-sudo ./bodyos_sdk_upgrade.sh --uninstall --yes --keep-config --keep-user
+# 显式删除配置和用户（仅在用户没有运行中的进程时删除用户）
+sudo ./bodyos_sdk_upgrade.sh --uninstall --purge-config --purge-user
+
+# 自定义根目录安装的卸载（--root 放在子命令前）
+sudo ./bodyos_sdk_upgrade.sh --root /usr/local/bodyos --uninstall
 ```
 
 ## 常见问题
